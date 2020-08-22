@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS
 from flask_heroku import Heroku
+import os
+
 
 app = Flask(__name__)
 heroku = Heroku(app)
@@ -50,7 +52,7 @@ def add_blog():
 def get_blogs():
     all_blogs = Blog.query.all()
     result = blogs_schema.dump(all_blogs)
-    return jsonify(result.data)
+    return jsonify(result)
 
 
 # Endpoint for querying a single blog
