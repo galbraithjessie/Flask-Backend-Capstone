@@ -26,7 +26,7 @@ class Blog(db.Model):
 
 class BlogSchema(ma.Schema):
     class Meta:
-        fields = ('title', 'content')
+        fields = ('title', 'content', 'id')
 
 
 blog_schema = BlogSchema()
