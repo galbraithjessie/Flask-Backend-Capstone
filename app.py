@@ -19,13 +19,14 @@ class Blog(db.Model):
     title = db.Column(db.String(100), unique=False)
     content = db.Column(db.String(255), unique=False)
 
-    def __init__(self, title, content):
+    def __init__(self, title, content, id):
         self.title = title
         self.content = content
+        self.id = id
 
 class BlogSchema(ma.Schema):
     class Meta:
-        fields = ('title', 'content')
+        fields = ('title', 'content', 'id')
 
 
 blog_schema = BlogSchema()
