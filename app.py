@@ -16,8 +16,8 @@ ma = Marshmallow(app)
 
 class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), unique=False)
-    content = db.Column(db.String(255), unique=False)
+    title = db.Column(db.String(255), unique=False)
+    content = db.Column(db.Text, unique=False)
 
     def __init__(self, title, content, id):
         self.title = title
@@ -35,6 +35,7 @@ blogs_schema = BlogSchema(many=True)
 # Endpoint to create a new blog
 @app.route('/blog', methods=["POST"])
 def add_blog():
+    id = request.json['id']
     title = request.json['title']
     content = request.json['content']
 
