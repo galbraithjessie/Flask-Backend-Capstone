@@ -17,7 +17,7 @@ ma = Marshmallow(app)
 class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), unique=False)
-    content = db.Column(db.Text, unique=False)
+    content = db.Column(db.TEXT, unique=False)
 
     def __init__(self, title, content, id):
         self.title = title
