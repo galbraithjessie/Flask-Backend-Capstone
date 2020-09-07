@@ -5,7 +5,6 @@ from flask_cors import CORS
 from flask_heroku import Heroku
 import os
 
-
 app = Flask(__name__)
 heroku = Heroku(app)
 CORS(app)
